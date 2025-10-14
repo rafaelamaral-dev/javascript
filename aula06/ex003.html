@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Primeiro Programa</title>
+    <style>
+        body {
+            background-color: rgb(22, 163, 163);
+            color: white;
+            font: normal 20pt arial, sans-serif;
+        }
+
+        h1 {
+            color:rgba(145, 97, 7, 0.767);
+            box-sizing: border-box;
+            text-shadow: 2px 3px 2px black;;
+        }
+
+        /* Isso é um comentário em CSS */
+    </style>
+</head>
+<body>
+    <h1>Olá, mundo!</h1> <!-- Isso é um comentário -->
+    <p>Já me livrei da maldição</p>
+    <script>
+        var n1 = Number(window.prompt('Digite um número: ')) //string
+        // window.prompt() sempre recebe uma string, por isso precisamos mudar o tipo para number.
+        var n2 = Number(window.prompt('Digite outro número: ')) //string
+        var s = n1 + n2
+        window.alert('A soma dos números é ' + s) //concatenação
+        // (number + number) para adição
+        // (string + string) para concatenação
+    </script>
+</body>
+</html>
