@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <h1>Iniciando Estudos DOM</h1>
+    <h1 id="teste">Iniciando Estudos DOM</h1>
     <p>Aqui vai o resultado!</p>
     <p>Aprendendo a usar o <strong>DOM</strong> em Javascript</p>
     <div id="msg">Clique em mim</div>
@@ -24,8 +24,13 @@
         d.style.background = 'green'
         d.innerText = 'Estou aguardando...'
         */
-       var d = window.document.querySelector('div#msg')
-       d.style.background = 'blue'
+        var d = window.document.querySelector('div#msg')
+        d.style.background = 'blue'
+        d.innerText = 'Teste'
+        p1.style.color = 'pink'
+        document.querySelector("h1#teste").style.background = 'black'
+        document.querySelector('h1').innerText = 'Texto Substituto'
+
     </script>
 </body>
 </html>
