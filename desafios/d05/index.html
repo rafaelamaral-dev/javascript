@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Medidas</title>
+    <style>
+        button {
+            height: 50px;
+            width: 150px;
+        }
+        p {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <button onclick="converter()">Converter</button>
+    <p id="res">Clique no Botão acima para iniciar.</p>
+
+    <script>
+        function converter() {
+            let distancia = Number(prompt('Digite uma distância em metros(m)'))
+            res = window.document.getElementById('res')
+            res.innerHTML = `<p><strong>A distância de ${distancia.toFixed(2)} metros, corresponde a...</strong></p><hr>`
+            res.innerHTML += `<p>${(distancia/1000).toFixed(3).replace('.',',')} (Km)</p>`
+            res.innerHTML += `<p>${(distancia/100).toFixed(3).replace('.',',')} (Hm)</p>`
+            res.innerHTML += `<p>${(distancia/10).toFixed(3).replace('.',',')}(Dam)</p>`
+            res.innerHTML += `<p>${(distancia*10).toFixed(3).replace('.',',')}(dm)</p>`
+            res.innerHTML += `<p>${(distancia*100).toFixed(3).replace('.',',')} (cm)</p>`
+            res.innerHTML += `<p>${(distancia*1000).toFixed(3).replace('.',',')} (mm)</p>`
+        }
+    </script>
+</body>
+</html>
