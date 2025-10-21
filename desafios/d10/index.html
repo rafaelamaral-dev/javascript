@@ -9,6 +9,11 @@
             height: 50px;
             width: 100px;
         }
+        .titulo-grande {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -23,10 +28,13 @@
             let c = Number(prompt(`Qual é o valor de c?`))
             let delta = (b**2)-4*a*c
             let res = window.document.querySelector('p#res')
-            res.innerHTML = `Resolvendo Bhaskara`
-            res.innerHTML += `A equação atual é ${a}x<sup>2</sup> + ${b}x + ${c} = 0`
-            res.innerHTML += `O cálculo realizado será &Delta; = ${a}<sup>2</sup> -4.${a}.${c}`
-            res.innerHTML += ``
+            // criar apenas o título com classe para alterar tamanho sem afetar os parágrafos seguintes
+            res.innerHTML = `<p class="titulo-grande">Resolvendo Bhaskara</p>`
+            res.innerHTML += `<p>A equação atual é <strong>${a}x<sup>2</sup> + ${b}x + ${c} = 0</strong></p>`
+            res.innerHTML += `<p>O cálculo realizado será <strong>&Delta; = ${b}<sup>2</sup> - 4 . ${a} . ${c}</strong></p>`
+            res.innerHTML += `<p>O valor calculado foi <strong>
+                <mark>&Delta; = ${delta}</mark>
+            </strong></p>`
         }
     </script>
 </body>
