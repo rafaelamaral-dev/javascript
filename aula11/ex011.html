@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Nacionalidade</title>
+</head>
+<body>
+    <h1>Verificador de Nacionalidade</h1>
+    Nacionalidade: <input type="text" name="txt1" id="txt1">
+    <input type="button" value="Verificar" onclick="clicou()">
+    <div id="res"></div>
+
+    <script>
+        function clicou(){
+            // seleciona o elemento <input id="txt1"> do DOM
+            // document.querySelector retorna o elemento (um objeto do tipo HTMLInputElement)
+            const input = document.querySelector('input#txt1')
+
+            // seleciona a div onde vamos mostrar o resultado
+            const res = document.querySelector('div#res')
+
+            // input.value é a string digitada pelo usuário
+            // trim() remove espaços no início e no fim, evitando erros por espaços extras
+            const nac = input.value.trim()
+
+            // if (!nac) usa o operador ! para testar 'não nac' — ou seja, se a string está vazia ('')
+            // uma string vazia é avaliada como falsy, então !nac será true quando o campo estiver vazio
+            if (!nac) {
+                // informa ao usuário que o campo está vazio e interrompe a função com return
+                res.innerHTML = '<p>Por favor, informe sua nacionalidade.</p>'
+                return // parar execução da função aqui
+            }
+
+            // mostra o que o usuário digitou (já sem espaços extras)
+            res.innerHTML = `<p>Vivendo em <strong>${nac}</strong></p>`
+
+            // para comparar sem diferenciar maiúsculas/minúsculas, transformamos em minúsculas
+            const lower = nac.toLowerCase()
+
+            // o operador || (ou) permite checar várias possibilidades
+            // ex: se lower for 'brasil' OU 'brasileiro' OU 'brasileira' então é brasileiro
+            if (lower === 'brasil' || lower === 'brasileiro' || lower === 'brasileira') {
+                res.innerHTML += '<p>Você é Brasileiro(a)!</p>'
+            } else {
+                res.innerHTML += '<p>Você é Estrangeiro(a)!<p>'
+            }
+        }
+    </script>
+</body>
+</html>
