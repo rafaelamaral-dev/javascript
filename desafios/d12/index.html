@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        button {
+            height: 50px;
+            width: 100px;
+        }
+        h1,p {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #titulo{
+            font: bold 1.4em arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Desafio 12 - Preço Mudou</h1>
+    <button onclick="verificar()">Verificar</button>
+    <p id="res">Clique no botão acima para analisar a mudança de preço.</p>
+
+    <script>
+        function verificar(){
+            let preco1 = Number(prompt(`Qual era o preço anterior do produto?`))
+            let preco2 = Number (prompt(`Qual é o preço atual do produto?`))
+            let res = document.querySelector('p#res')
+            res.innerHTML = `<p id="titulo">Analisando os valores informados</p>`
+            res.innerHTML += `<p>O produto custava R$ ${preco1.toFixed(2).replace('.',',')} e agora custa R$ ${preco2.toFixed(2).replace('.',',')}.</p>`
+            if((preco2-preco1)>0){
+                res.innerHTML += `<p>Hoje o produto está mais caro.</p>`
+                res.innerHTML += `<p>O preço subiu R$ ${(preco2-preco1).toFixed(2).replace('.',',')} em relação ao preço anterior.</p>`
+                res.innerHTML += `<p>Uma variação de ${((preco2/preco1-1)*100).toFixed(2).replace('.',',')}% para cima.</p>`
+            }
+            else {
+                res.innerHTML += `<p>Hoje o produto está mais barato.</p>`
+                res.innerHTML += `<p>O preço caiu R$ ${(preco1-preco2).toFixed(2).replace('.',',')} em relação ao preço anterior.</p>`
+                res.innerHTML += `<p>Uma variação de ${((1-preco2/preco1)*100).toFixed(2).replace('.',',')}% para baixo.</p>`
+            }
+        }
+    </script>
+</body>
+</html>
