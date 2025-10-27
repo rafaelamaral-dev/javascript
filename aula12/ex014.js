@@ -1,4 +1,4 @@
-// Treino de consições múltiplas
+// Treino de condições múltiplas
 
 //A estrutura do Switch só funciona com valores exatos ou strings, e não aceita intervalos como o if/else if. 
 
