@@ -1,49 +1,35 @@
-function verificar() {
-    var data = new Date()
-    var ano = data.getFullYear()
-    var fano = document.getElementById('txtano')
-    var res = document.querySelector('div#res')
-    if(fano.value.length == 0 || fano.value > ano){
-        alert('ERRO! Verifique os dados e tente novamente!')
-    } else {
-        var fsex = document.getElementsByName('radsex')
-        var idade = ano - Number(fano.value)
-        var genero = ``
-        var img = document.createElement('img')
-        img.setAttribute('id','foto')
-        if(fsex[0].checked){
-            genero = `Homem`
-            if(idade >= 0 && idade <10){
-                //Criança
-                img.setAttribute('src', 'bebehomem.png')
-            } else if(idade < 21){
-                //Jovem
-                img.setAttribute('src', 'homemjovem.png')
-            } else if(idade < 50){
-                //Adulto
-                img.setAttribute('src', 'homem.png')
-            } else{
-                //Idoso
-                img.setAttribute('src', 'idoso.png')
-            }
-        } else if(fsex[1].checked){
-            genero = `Mulher`
-            if(idade >= 0 && idade <10){
-                //Criança
-                img.setAttribute('src', 'bebemulher.png')
-            } else if(idade < 21){
-                //Jovem
-                img.setAttribute('src', 'mulherjovem.png')
-            } else if(idade < 50){
-                //Adulto
-                img.setAttribute('src', 'mulher.png')
-            } else{
-                //Idoso
-                img.setAttribute('src', 'idosa.png')
-            }
-        }
-        res.style.textAlign = `center`
-        res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
-        res.appendChild(img)
+let tabuada = document.querySelector('select#tabuada')
+
+function clique(){
+
+    let valor = document.querySelector('input#valor').value
+
+    if(valor==='' || valor==='.' || isNaN(valor)){
+        tabuada.innerHTML='<option>[ERRO] Digite um número válido!</option>'
+        return
     }
+
+    //Limpa o SELECT antigo (para que a nova tabuada não se acumule)
+    tabuada.innerHTML=''
+    
+        let t=Number(valor)
+        for(var i = 0; i<=10; i++){
+            let resultado = `${t*i}`;
+            let textoOpcao = `${t} x ${i} = ${resultado}`;
+            //A. Criar elemento <option>
+            let novaOpcao = document.createElement('option');
+
+            //B. Define o texto que o usuário verá
+            novaOpcao.textContent= textoOpcao;
+            
+            //C. (Opcional) Define o 'value' (o valor que seria enviado em um formulário)
+            novaOpcao.value= resultado;
+
+            //D. Adiciona o <option> dentro do <select>
+            tabuada.appendChild(novaOpcao);
+        }
+    
+    // Opcional: Chama a função uma vez ao carregar a página para mostrar a tabuada padrão
+    // clique();
+
 }
