@@ -32,15 +32,15 @@ function clique(){
     // calcular soma de todos os termos da sequência: i, i+p, i+2p, ... até f
     let soma = 0
 
-    if(inic<fim){
+    if(inic<=fim){
         // sequência crescente
-        for(var i = 1; i<=fim; i= +((i+passo).toFixed(12))){
+        for(var i = inic; i<=fim; i= +((i+passo).toFixed(12))){
            res.innerHTML+=`${i}...\u{1F449} `
            soma+=i 
         }
     } else {
         // sequência decrescente
-        for(var i=fim; i>=inic; i = +((i-passo).toFixed(12))){
+        for(var i=inic; i>=fim; i = +((i-passo).toFixed(12))){
             res.innerHTML+=`${i}...\u{1F449} `
             soma+=i
         }
