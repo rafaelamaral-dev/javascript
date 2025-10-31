@@ -12,7 +12,7 @@ function clique(){
     //Limpa o SELECT antigo (para que a nova tabuada não se acumule)
     tabuada.innerHTML=''
     
-        let t=Number(valor)
+        let t= +(valor)
         for(var i = 0; i<=10; i++){
             let resultado = `${t*i}`;
             let textoOpcao = `${t} x ${i} = ${resultado}`;
