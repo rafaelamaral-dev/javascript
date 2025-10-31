@@ -18,6 +18,11 @@ function clique(){
 
         let novaOpcao = document.createElement('option');
         novaOpcao.textContent= textoOpcao;
+        novaOpcao.value= `tab${i}` //Opcional*
         tabuada.appendChild(novaOpcao);
     }
 }
+
+/*: Neste exercício o value no option não faz sentido, pois o Javascript não precisa dele. 
+Porém, em linguagens como PHP e outras server side essa propriedade é importante.
+*/
