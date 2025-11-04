@@ -1,8 +1,8 @@
 let num = [5,8,2,9,3] //Declaração de Array (vetor)
 
-num.push(1) //Declaração de valor na última posição do array.
-
 num[5]=6 //Acrescenta um valor em uma posição do array (valor '6' na posição índice 5. A primeira posição tem índice 0.)
+
+num.push(1) //Declaração de valor na última posição do array.
 
 num.sort() //Ordena os valores em forma crescente.
 
