@@ -1,23 +1,20 @@
-let num1 = document.querySelector('#fnum1')
 let res = document.querySelector('#res')
 
 function calculo(){
-    
-    let chute = +(num1.value)    
+
+    for(let c = 1; c <= 4 ; c++){
+        let chute = prompt(`Escolha um número inteiro entre 1 e 10`)
+        let chuteNumerico = +(chute)    
 
     // Validações básicas
     
-    if(chute == '' || chute == '.' || Number.isNaN(chute)){
+    if(chuteNumerico == '' || chuteNumerico == '.' || Number.isNaN(chuteNumerico)){
         alert('Digite um valor válido para prosseguir.')
-        num1.value = ''
-        num1.focus()
         return
     }
 
-    if(chute < 1 || chute > 5){
-        alert('Digite um valor dentro do intervalo 1 a 5 para prosseguir.')
-        num1.value = ''
-        num1.focus()
+    if(chuteNumerico < 1 || chuteNumerico > 10){
+        alert('Digite um valor dentro do intervalo 1 a 10 para prosseguir.')
         return
     }
 
@@ -28,12 +25,14 @@ function calculo(){
         return Math.floor(Math.random()*(max - min + 1)) + min;
     } 
 
-    let sorteio = getRandomIntInclusive(1, 5)
-
-    if(sorteio === chute){
-        res.innerHTML = `<strong>Parabéns!</strong> Você apostou em ${chute} e eu sorteei o ${sorteio}!`
+    let sorteio = getRandomIntInclusive(1, 10)
+        if(sorteio === chuteNumerico){
+        alert(`Parabéns! Você apostou em ${chuteNumerico} e eu sorteei o ${sorteio}!`)
+        return
     }else{
-        res.innerHTML = `<strong>Não foi dessa vez!</strong> Você apostou em ${chute} e eu sorteei o número ${sorteio}.`
+        alert(`Não foi dessa vez! Você apostou em ${chuteNumerico} e eu sorteei o número ${sorteio}. Você tem mais ${4-c} tentativas!`)
     }
+    }
+    
 
 }
